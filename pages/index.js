@@ -26,6 +26,7 @@ export default function Home() {
         <Row className='m-0'>
           <Col md={6} className='auth_page left_col'>
             <div className='text-center'>
+              <p className='auth_heading'>[Cygio]</p>
               <p className='auth_heading'>Promoting Brand Inclusivity for African Businesses!</p>
               <p className='auth_p'>We Are Driving Brand Inclusion For African Businesses Through Social Media</p>
             </div>
@@ -39,7 +40,7 @@ export default function Home() {
               <Form onSubmit={handleSubmit}>
                 <div>
                   <label className='input_label'>Email</label>
-                  <input className='auth_field mb-3' type='email' />
+                  <input className='auth_field mb-2' type='email' />
                 </div>
                 <div>
                   <label className='input_label'>Password</label>
