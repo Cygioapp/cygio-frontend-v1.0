@@ -5,14 +5,16 @@ import { Card, Col, Form, Row } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import icon from "../src/images/cygio-icon.png";
 import { axiosInstance } from "@/utils/axios";
-
 import { BsFacebook, BsGoogle } from "react-icons/bs";
 import logo from "../src/images/cygio-logo.png";
 import { useMutation } from "react-query";
 import { useState } from "react";
+import { useRouter } from "next/router";
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const { mutate } = useMutation(
     async ({ email, password }) =>
       await axiosInstance.post("/accounts/login/", {
@@ -24,6 +26,9 @@ export default function Home() {
       onSuccess: data => {},
     }
   );
+
+  const router = useRouter();
+
   const handleSubmit = async e => {
     e.preventDefault();
     mutate({
@@ -31,6 +36,7 @@ export default function Home() {
       password: password,
     });
   };
+
   return (
     <>
       <Head>
@@ -93,10 +99,17 @@ export default function Home() {
               </div>
               <hr className="m-0 line" />
               <div className="auth_icon_group mb-3">
-                <div className="auth_icon_div">
+                <button className="auth_icon_div" onClick={() => {}}>
                   <BsFacebook size="1.5rem" /> Facebook
-                </div>
-                <div className="auth_icon_div">
+                </button>
+                <div
+                  className="auth_icon_div"
+                  onClick={() =>
+                    router.push(
+                      `https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=${process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CALLBACK_URL}&prompt=consent&response_type=code&client_id=${process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID}&scope=openid%20email%20profile&access_type=offline`
+                    )
+                  }
+                >
                   <BsGoogle size="1.5rem" /> Google
                 </div>
               </div>
