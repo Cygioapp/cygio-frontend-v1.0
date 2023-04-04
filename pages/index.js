@@ -2,13 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, Col, Form, Row } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.css";
 import icon from "../src/images/cygio-icon.png";
 import { axiosInstance } from "@/utils/axios";
 import { BsFacebook, BsGoogle } from "react-icons/bs";
 import logo from "../src/images/cygio-logo.png";
 import { useMutation } from "react-query";
 import { useState } from "react";
+import promo from "../src/images/promo (4).svg"
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -49,13 +49,15 @@ export default function Home() {
           <Col md={6} className="auth_page left_col">
             <div className="text-center">
               {/* <p className="auth_heading">Cygio</p> */}
-              <p className="auth_heading">
+              <Image src={promo} alt='image' width={200}/>
+
+              <p className="auth_heading" style={{padding:'0 55px'}}>
                 Promoting Brand Inclusivity for African Businesses!
               </p>
-              <p className="auth_p">
+              {/* <p className="auth_p">
                 We Are Driving Brand Inclusion For African Businesses Through
                 Social Media
-              </p>
+              </p> */}
             </div>
           </Col>
           <Col md={6} className="auth_page">

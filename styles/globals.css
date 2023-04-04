@@ -27,6 +27,9 @@
   border-radius: 20px !important;
 }
 
+.org_card {
+  border-radius: 20px !important;
+}
 .auth_btn {
   border: none;
   padding: 10px;
@@ -87,7 +90,7 @@
 
 .auth_heading {
   font-weight: 900;
-  font-size: 40px;
+  font-size: 30px;
   color: white;
 }
 .auth_p {
@@ -99,4 +102,22 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+/* //////////////////ACCOUNT TYPE///////////////// */
+.account_card {
+  border-radius: 20px !important;
+  border: none !important;
+  transition: 200ms;
+  width: 150px;
+}
+
+.account_card:hover {
+  cursor: pointer;
+  background-color: rgb(240, 240, 240);
+}
+.account_type_icon {
+  font-size: 25px;
+  color: var(--primaryColor);
+  text-align: center; 
 }

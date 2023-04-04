@@ -2,11 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, Col, Form, Row } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.css";
 import icon from "../../src/images/cygio-icon.png";
 import { axiosInstance } from "@/utils/axios";
 import { BsFacebook, BsGoogle } from "react-icons/bs";
 import logo from "../../src/images/cygio-logo.png";
+import promo from "../../src/images/promo (4).svg"
 import { useMutation } from "react-query";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -17,7 +17,8 @@ export default function signup() {
     {
         email: '',
         phone: '',
-        password: ''
+        username: '',
+        password: '',
     }
 
     const [signup, setSignup] = useState(regForm)
@@ -28,6 +29,7 @@ export default function signup() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        router.push('/auth/account-type')
         console.log(signup)
     };
 
@@ -44,13 +46,14 @@ export default function signup() {
                     <Col md={6} className="auth_page left_col">
                         <div className="text-center">
                             {/* <p className="auth_heading">Cygio</p> */}
+                            <Image src={promo} alt='image' width={200} />
                             <p className="auth_heading">
                                 Promoting Brand Inclusivity for African Businesses!
                             </p>
-                            <p className="auth_p">
+                            {/* <p className="auth_p">
                                 We Are Driving Brand Inclusion For African Businesses Through
                                 Social Media
-                            </p>
+                            </p> */}
                         </div>
                     </Col>
                     <Col md={6} className="auth_page">
@@ -84,6 +87,16 @@ export default function signup() {
                                         type="number"
                                         name="phone"
                                         value={signup.phone}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                                <div>
+                                    <label className="input_label">Username</label>
+                                    <input
+                                        className="auth_field mb-2"
+                                        type="text"
+                                        name="username"
+                                        value={signup.username}
                                         onChange={handleChange}
                                     />
                                 </div>

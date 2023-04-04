@@ -1,14 +1,58 @@
 import { primaryColor } from '@/components/src/colors'
 import React from 'react'
+import icon from "../../src/images/cygio-icon.png";
+import logo from "../../src/images/cygio-logo.png";
+import { MdOutlineBrandingWatermark } from 'react-icons/md'
+import { CiUser } from 'react-icons/ci'
+import { RiUserStarLine, RiUserLine } from 'react-icons/ri'
+import Image from "next/image";
+import { useRouter } from 'next/router';
+import { Card, Col, Row } from 'reactstrap';
 
-export default function AccounType() {
+export default function AccountType() {
+  const router = useRouter()
+  const accountTypes = [
+    {
+      icon: <MdOutlineBrandingWatermark className='account_type_icon' />,
+      text: 'Brand',
+      link: '/auth/create-org'
+    },
+    {
+      icon: <RiUserStarLine className='account_type_icon' />,
+      text: 'Creator',
+      link: '/auth/create-org'
+    },
+    {
+      icon: <RiUserLine className='account_type_icon' />,
+      text: 'Personal',
+      link: '/auth/create-org'
+    }
+  ]
   return (
-    <div>
-      <div className='d-flex justify-content-center align-items-center'>
+    <div className=''>
+      <div className='d-flex justify-content-center mt-5'>
         <div>
-          <p className="auth_heading" style={{ color: primaryColor }}>
+          <div
+            className="text-center"
+
+          >
+            <Image src={icon} width={50} alt="cygio-icon" />
+            <Image src={logo} width={120} alt="cygio-logo" />
+          </div>
+          <p className="auth_heading mt-3 text-center" style={{ color: primaryColor }}>
             Choose account type
           </p>
+          <div className='d-flex text-center' style={{ gap: 20 }}>
+            {accountTypes.map((item, index) => (
+
+              <Card className='account_card shadow p-3' onClick={() => router.push(item.link)}>
+                <div>
+                  {item.icon}
+                </div>
+                <p>{item.text}</p>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
     </div>
