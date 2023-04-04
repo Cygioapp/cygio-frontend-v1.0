@@ -22,8 +22,8 @@ export default function Home() {
         password,
       }),
     {
-      onError: error => {},
-      onSuccess: data => {},
+      onError: error => { },
+      onSuccess: data => { },
     }
   );
 
@@ -48,7 +48,7 @@ export default function Home() {
         <Row className="m-0">
           <Col md={6} className="auth_page left_col">
             <div className="text-center">
-              <p className="auth_heading">[Cygio]</p>
+              {/* <p className="auth_heading">Cygio</p> */}
               <p className="auth_heading">
                 Promoting Brand Inclusivity for African Businesses!
               </p>
@@ -99,7 +99,7 @@ export default function Home() {
               </div>
               <hr className="m-0 line" />
               <div className="auth_icon_group mb-3">
-                <button className="auth_icon_div" onClick={() => {}}>
+                <button className="auth_icon_div" onClick={() => { }}>
                   <BsFacebook size="1.5rem" /> Facebook
                 </button>
                 <div
