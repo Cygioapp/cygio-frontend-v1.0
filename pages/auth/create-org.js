@@ -4,8 +4,11 @@ import icon from "../../src/images/cygio-icon.png";
 import logo from "../../src/images/cygio-logo.png";
 import Image from "next/image";
 import { Card, Col, Form, Row } from 'reactstrap';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export default function CreateOrganization() {
+  const router = useRouter()
   const orgForm =
   {
     name: '',
@@ -27,8 +30,12 @@ export default function CreateOrganization() {
 
   return (
     <div className=''>
-      {/* {JSON.stringify(org)} */}
-      <div className='d-flex justify-content-center mt-3'>
+      <Head>
+        <title>Cygio - Create organization</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className='d-flex justify-content-center mt-5'>
         <div>
           <div
             className="text-center"
@@ -84,7 +91,7 @@ export default function CreateOrganization() {
                   />
                 </div>
                 <div className="">
-                  <button className="auth_btn mb-3">Create</button>
+                  <button className="auth_btn mb-3" onClick={() => router.push('/auth/connect-socials')}>Create</button>
                 </div>
               </Form>
             </Card>

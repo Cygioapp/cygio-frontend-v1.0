@@ -1,6 +1,7 @@
 :root {
   --primaryColor: #002f47;
   --secondaryColor: #f6bb47;
+  --inputColor: rgb(238, 238, 238);
 }
 
 /* ////////---------AUTH STYLES---------////////// */
@@ -109,7 +110,7 @@
   border-radius: 20px !important;
   border: none !important;
   transition: 200ms;
-  width: 150px;
+  width: 200px;
 }
 
 .account_card:hover {
@@ -119,5 +120,71 @@
 .account_type_icon {
   font-size: 25px;
   color: var(--primaryColor);
-  text-align: center; 
+  text-align: center;
+}
+
+.connect_btn {
+  background-color: var(--primaryColor);
+  border: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.modal_heading {
+  font-weight: bold;
+}
+.modal_desc {
+  font-size: 12px;
+}
+.social_desc_card {
+  background-color: var(--inputColor) !important;
+  border: none !important;
+}
+
+/* /////////////////////////////////////////////////////////////// */
+.sidebar {
+  height: 100vh;
+  background-color: white;
+  overflow-y: auto;
+}
+.sidebar_item:hover {
+  background-color: #f3fcfc;
+  color: black;
+}
+
+.sidebar_item {
+  margin: 0;
+  cursor: pointer;
+  color: grey;
+  padding: 5px 20px;
+  font-size: 13px;
+}
+.item_head {
+  margin: 0;
+  font-size: 13px;
+  color: black;
+  padding: 5px 20px;
+}
+.active_sidebar_item {
+  background-color: #f3fcfc;
+  border-left: 5px solid #38cac9;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: #f1f1f1;  */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bebebe;
+}
+.sidebar_{
+  background-color: white;
+  height: 100vh;
 }

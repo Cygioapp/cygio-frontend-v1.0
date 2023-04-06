@@ -8,6 +8,7 @@ import { RiUserStarLine, RiUserLine } from 'react-icons/ri'
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import { Card, Col, Row } from 'reactstrap';
+import Head from 'next/head';
 
 export default function AccountType() {
   const router = useRouter()
@@ -30,6 +31,11 @@ export default function AccountType() {
   ]
   return (
     <div className=''>
+      <Head>
+        <title>Cygio - Choose account type</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className='d-flex justify-content-center mt-5'>
         <div>
           <div

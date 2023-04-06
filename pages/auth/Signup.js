@@ -131,7 +131,7 @@ export default function signup() {
                             <div className="text-center">
                                 <p className="auth_mssg">
                                     Already have an account? |{" "}
-                                    <Link href="/" className="_link">
+                                    <Link href="/auth/login" className="_link">
                                         Log in here
                                     </Link>
                                 </p>
