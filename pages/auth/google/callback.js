@@ -28,12 +28,14 @@ export async function getServerSideProps({ query, res }) {
         },
       }
     );
-
+    console.log(googleResponse)
     const postResponse = await axiosInstance.post("/accounts/google/", {
       access_token: googleResponse.data.id_token,
       code: code,
       id_token: googleResponse.data.access_token,
     });
+    console.log(postResponse)
+
     res.setHeader("Set-Cookie", postResponse.headers["set-cookie"]);
 
     return {
@@ -43,11 +45,32 @@ export async function getServerSideProps({ query, res }) {
       },
     };
   } catch (error) {
+    const response = error.response?.data;
+    if (
+      response?.non_field_errors &&
+      Array.isArray(response?.non_field_errors) &&
+      response?.non_field_errors.length === 1
+
+      // send a get request to fetch user current auth provider and then suggest 
+      // it to the user, in cases where the user might have forgotten the 
+      // auth method he used.
+    ) {
+      return {
+        redirect: {
+        destination: `/404?error=${encodeURIComponent(response?.non_field_errors[0],)}`,
+        permanent: false
+      }
+      };
+    }
+  
+    return false;
+    /*
     return {
       redirect: {
         destination: "/404",
         permanent: false,
       },
     };
+    */
   }
 }
