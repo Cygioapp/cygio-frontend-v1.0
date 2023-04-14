@@ -133,7 +133,14 @@ export default function signup() {
               </div>
               <hr className="m-0 line" />
               <div className="auth_icon_group mb-3">
-                <button className="auth_icon_div" onClick={() => {}}>
+                <button
+                  className="auth_icon_div"
+                  onClick={() => {
+                    router.push(
+                      `https://www.facebook.com/v16.0/dialog/oauth?client_id=${process.env.NEXT_PUBLIC_FACEBOOK_OAUTH_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_FACEBOOK_OAUTH_CALLBACK_URL}&response_type=code&display=popup`
+                    );
+                  }}
+                >
                   <BsFacebook size="1.5rem" /> Facebook
                 </button>
                 <button
