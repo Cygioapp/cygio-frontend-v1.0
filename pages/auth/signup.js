@@ -31,7 +31,6 @@ export default function signup() {
     {
       onError: error => {
         setError(error.response.data.email[0]);
-        console.log(error);
       },
       onSuccess: data => {
         router.push("/auth/email-verification-sent");
