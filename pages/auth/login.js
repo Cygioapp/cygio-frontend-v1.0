@@ -11,16 +11,28 @@ import { useState } from "react";
 import promo from "../../src/images/promo (4).svg";
 import { useRouter } from "next/router";
 
+import Cookies from "js-cookie";
+
+var csrftoken = Cookies.get("csrftoken");
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { mutate } = useMutation(
     async ({ email, password }) =>
-      await axiosInstance.post("/accounts/login/", {
-        email,
-        password,
-      }),
+      await axiosInstance.post(
+        "/accounts/login/",
+        {
+          email,
+          password,
+        },
+        {
+          headers: {
+            "X-CSRFTOKEN": csrftoken,
+          },
+        }
+      ),
     {
       onError: error => {},
       onSuccess: data => {},
