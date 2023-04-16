@@ -24,7 +24,7 @@ export default function signup() {
     const [signup, setSignup] = useState(regForm)
 
     const handleChange = ({ target: { name, value } }) => {
-        setSignup((p) => ({ ...p, [name]: value }))
+        setSignup((p) => ({ ...p, [name]: value })) 
     }
 
     const handleSubmit = (e) => {
@@ -37,7 +37,7 @@ export default function signup() {
         <>
             <Head>
                 <title>Cygio - login or sign up</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="viewport" content="width=device-wi  dth, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className="">

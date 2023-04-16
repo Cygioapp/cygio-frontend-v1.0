@@ -60,17 +60,22 @@ export default function ConnectType() {
       openM: openModal3
     }
   ]
-  // useEffect(() => {
-  //   fetch(`https://graph.facebook.com/me?access_token=EAAKpggIlDXMBALrzwQnJtw8EYtGnM3heqmSauDQIsVWu6Hilynu4w4WxApZAhAAQwyTXkxGV0tMB6b1HMTipU3CMcph2gPlKeRbRzrmTaDH5N8tmgEl6diBjh3t2GZCXek8NSaLIgGE7cPK6M61DshwGfZB9AZAKmHEuT7DFyr3fppJGzAZCsZBHNRUUEz9730PA1zhRGf8gZDZD`)
-  //     .then(raw => raw.json())
-  //     .then(resp => {
-  //       console.log(resp)
-  //       setFbData(resp)
-  //     })
-  //     .catch(e => {
-  //       console.log(e)
-  //     })
-  // }, [])
+
+  const connectFb = () => {
+    fetch("https://www.facebook.com/v16.0/dialog/oauth?client_id=764350358048782&redirect_uri=https://cygio.netlify.app/&scope=public_profile,email,user_likes,user_birthday,user_gender")
+      .then(raw => raw.json())
+      .then(resp => {
+        console.log(resp)
+        setFbData(resp)
+      })
+      .catch(e => {
+        console.log(e)
+      })
+  }
+
+  useEffect(() => {
+
+  }, [])
   return (
     <div className=''>
       {/* {JSON.stringify(fbData)} */}
@@ -119,7 +124,9 @@ export default function ConnectType() {
         your behalf, we must have your consent. You must be the 
         page admin for your company's Facebook page in order to 
         grant authorization.`}
-        btnText={'Connect to Facebook'} />
+        btnText={'Connect to Facebook'}
+        onClick={connectFb}
+      />
 
       <ModalSocial
         imgSrc={ig}
