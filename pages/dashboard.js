@@ -32,7 +32,24 @@ export default function dashboard() {
             title: 'Post title, post...'
         }
     ]
-    const recentActivities = []
+    const recentActivities = [
+        {
+            title: 'You created a post on cygio app page',
+            date: '2 hrs ago'
+        },
+        {
+            title: 'You replied to a twitter comment',
+            date: '3 hrs ago'
+        },
+        {
+            title: 'You created a post on cygio app page',
+            date: '12/12/2022'
+        },
+        {
+            title: 'You replied to a twitter comment',
+            date: '12/12/2022'
+        }
+    ]
     return (
         <div>
             <Layout>
@@ -79,83 +96,25 @@ export default function dashboard() {
                         <Card className='app_main_card shadow p-3' style={{ height: '38vh' }}>
                             <h6>Recent Activities</h6>
                             <Table responsive>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                        </th>
-                                        <th>
-                                        </th>
-                                        <th>
-                                        </th>
-                                        <th>
-                                        </th>
-                                    </tr>
-                                </thead>
                                 <tbody>
-                                    <tr>
-                                        <td className='dashboard_p'>
-                                            <span className='t_indx'>
-                                                1
-                                            </span>
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            You created a post on cygio app page
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            12/12/2022
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            <button className='dashboard_child_btn'>View</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className='dashboard_p'>
-                                            <span className='t_indx'>
-                                                1
-                                            </span>
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            You created a post on cygio app page
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            2 hrs ago
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            <button className='dashboard_child_btn'>View</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className='dashboard_p'>
-                                            <span className='t_indx'>
-                                                1
-                                            </span>
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            You replied to a twitter comment
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            5 hrs ago
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            <button className='dashboard_child_btn'>View</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className='dashboard_p'>
-                                            <span className='t_indx'>
-                                                1
-                                            </span>
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            You replied to a twitter comment
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            5 hrs ago
-                                        </td>
-                                        <td className='dashboard_p'>
-                                            <button className='dashboard_child_btn'>View</button>
-                                        </td>
-                                    </tr>
+                                    {recentActivities.map((activity, index) => (
+                                        <tr>
+                                            <td className='dashboard_p'>
+                                                <span className='t_indx'>
+                                                    {index + 1}
+                                                </span>
+                                            </td>
+                                            <td className='dashboard_p'>
+                                                {activity.title}
+                                            </td>
+                                            <td className='dashboard_p'>
+                                                {activity.date}
+                                            </td>
+                                            <td className='dashboard_p'>
+                                                <button className='dashboard_child_btn'>View</button>
+                                            </td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </Table>
                         </Card>

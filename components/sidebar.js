@@ -1,6 +1,8 @@
 import { GoDashboard } from 'react-icons/go'
 import { TbBrandGoogleAnalytics } from 'react-icons/tb'
 import { BsPencilSquare } from 'react-icons/bs'
+import { FaUsersCog } from 'react-icons/fa'
+import { BiBriefcaseAlt } from 'react-icons/bi'
 import React, { useMemo } from 'react'
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -12,7 +14,9 @@ export default function Sidebar() {
     const menuItems = [
         { id: 1, label: 'Dashboard', icon: GoDashboard, link: '/dashboard', },
         { id: 2, label: 'Publish', icon: BsPencilSquare, link: '/publish' },
-        { id: 3, label: 'Analytics', icon: TbBrandGoogleAnalytics, link: '/analytics' }
+        { id: 3, label: 'Analytics', icon: TbBrandGoogleAnalytics, link: '/analytics' },
+        { id: 4, label: 'Social Accounts', icon: FaUsersCog, link: '/SocialAccounts' },
+        { id: 5, label: 'Organization', icon: BiBriefcaseAlt, link: '/' }
     ];
 
     const router = useRouter()

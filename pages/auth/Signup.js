@@ -24,7 +24,7 @@ export default function signup() {
     const [signup, setSignup] = useState(regForm)
 
     const handleChange = ({ target: { name, value } }) => {
-        setSignup((p) => ({ ...p, [name]: value })) 
+        setSignup((p) => ({ ...p, [name]: value }))
     }
 
     const handleSubmit = (e) => {

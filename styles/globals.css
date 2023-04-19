@@ -168,14 +168,14 @@
 .sidebar_item_ {
   margin: 0;
   cursor: pointer;
-  color: black;
+  color: grey;
   width: 100%;
   padding: 5px 20px;
   font-size: 13px;
 }
 .sidebar_icon {
   margin-right: 10px;
-  color: black !important;
+  color: grey !important;
 }
 
 .active_sidebar_item {
@@ -214,8 +214,93 @@
   padding: 5px 10px;
 }
 
-.t_indx{
+.t_indx {
   background-color: #f0f3f4;
   padding: 5px;
   border-radius: 5px;
+}
+
+/* ////////////////////////////////////////////////////////////////// */
+.left_pub_pane {
+  border: none !important;
+}
+.right_pub_pane {
+  background-color: #eff2f3 !important;
+  border: none !important;
+  height: 80vh !important;
+  overflow-y: auto;
+}
+.text_area {
+  width: 100%;
+  border: none;
+  background-color: rgb(238, 238, 238);
+  padding: 10px;
+  border-radius: 5px;
+  resize: none;
+}
+.text_area:focus {
+  outline: none;
+}
+.text_area_div {
+  background-color: var(--inputColor);
+  border-radius: 5px;
+}
+.prev_card {
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f2f2f2;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  /* border-radius: 10px; */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a4a4a4;
+}
+
+.preview_btn {
+  border: none;
+  border-radius: 5px;
+  background-color: var(--primaryColor);
+  font-size: 13px;
+  margin-right: 5px;
+  color: white;
+}
+.inactive_btn {
+  border: none;
+  border-radius: 5px;
+  background-color: #f0f3f4;
+  font-size: 13px;
+  margin-right: 5px;
+}
+
+.profiles_div {
+  height: 65px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  border: none !important;
+}
+
+.trash{
+  background-color: rgba(255, 0, 0, 0.074);
+  color: rgb(255, 94, 94);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 25px;
 }
