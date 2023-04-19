@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Layout from '../components/layout'
-import { Card, Col, Row } from 'reactstrap'
+import { Card, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Row } from 'reactstrap'
 import fb from "../src/images/fb.png";
 import tw from "../src/images/tw.png";
 import ig from "../src/images/ig.png";
@@ -25,20 +25,29 @@ export default function SocialAccounts() {
         icon: ig,
         name: 'Yasir Yakasai'
     }]
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
+    const toggle = () => setDropdownOpen((prevState) => !prevState);
     return (
         <div>
             <Layout>
                 <Card className='app_main_card shadow p-3' style={{ height: '95vh' }}>
+
                     <Row>
                         <Col md={6}>
                             <h5>Social Accounts</h5>
                         </Col>
                         <Col md={6}>
                             <div className='' style={{ float: 'right' }}>
-                                <button className='dashboard_parent_btn'>Add New Account</button>
+                                <Dropdown style={{color:'red'}} isOpen={dropdownOpen} toggle={toggle}>
+                                    <DropdownToggle caret>Add New Account</DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem>Some Action</DropdownItem>
+                                        <DropdownItem divider />
+                                    </DropdownMenu>
+                                </Dropdown>
                             </div>
-                            
+
                         </Col>
                     </Row>
                     {/* <Row>
