@@ -8,8 +8,12 @@ import { BsFacebook, BsGoogle } from "react-icons/bs";
 import logo from "../../src/images/cygio-logo.png";
 import { useMutation } from "react-query";
 import { useState } from "react";
-import promo from "../../src/images/promo (4).svg"
+import promo from "../../src/images/promo (4).svg";
 import { useRouter } from "next/router";
+
+import Cookies from "js-cookie";
+
+var csrftoken = Cookies.get("csrftoken");
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -17,13 +21,21 @@ export default function Login() {
 
   const { mutate } = useMutation(
     async ({ email, password }) =>
-      await axiosInstance.post("/accounts/login/", {
-        email,
-        password,
-      }),
+      await axiosInstance.post(
+        "/accounts/login/",
+        {
+          email,
+          password,
+        },
+        {
+          headers: {
+            "X-CSRFTOKEN": csrftoken,
+          },
+        }
+      ),
     {
-      onError: error => { },
-      onSuccess: data => { },
+      onError: error => {},
+      onSuccess: data => {},
     }
   );
 
@@ -49,9 +61,9 @@ export default function Login() {
           <Col md={6} className="auth_page left_col">
             <div className="text-center">
               {/* <p className="auth_heading">Cygio</p> */}
-              <Image src={promo} alt='image' width={200}/>
+              <Image src={promo} alt="image" width={200} />
 
-              <p className="auth_heading" style={{padding:'0 55px'}}>
+              <p className="auth_heading" style={{ padding: "0 55px" }}>
                 Promoting Brand Inclusivity for African Businesses!
               </p>
               {/* <p className="auth_p">
@@ -101,10 +113,17 @@ export default function Login() {
               </div>
               <hr className="m-0 line" />
               <div className="auth_icon_group mb-3">
-                <button className="auth_icon_div" onClick={() => { }}>
+                <button
+                  className="auth_icon_div"
+                  onClick={() => {
+                    router.push(
+                      `https://www.facebook.com/v16.0/dialog/oauth?client_id=${process.env.NEXT_PUBLIC_FACEBOOK_OAUTH_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_FACEBOOK_OAUTH_CALLBACK_URL}&response_type=code&display=popup`
+                    );
+                  }}
+                >
                   <BsFacebook size="1.5rem" /> Facebook
                 </button>
-                <div
+                <button
                   className="auth_icon_div"
                   onClick={() =>
                     router.push(
@@ -113,7 +132,7 @@ export default function Login() {
                   }
                 >
                   <BsGoogle size="1.5rem" /> Google
-                </div>
+                </button>
               </div>
               <div className="text-center">
                 <p className="auth_mssg">
